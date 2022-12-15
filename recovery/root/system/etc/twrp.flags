@@ -19,11 +19,18 @@
 
 /metadata         ext4     /dev/block/platform/bootdevice/by-name/metadata     flags=backup=1;display="Metadata"
 /persist          ext4     /dev/block/platform/bootdevice/by-name/persist      flags=backup=1;display="Persist"
-/system_root      ext4     /dev/block/platform/bootdevice/by-name/system       flags=backup=1;display="System";wipeingui
-/vendor           ext4     /dev/block/platform/bootdevice/by-name/vendor       flags=backup=1;display="Vendor";wipeingui
+/system_root      ext4     system                                              flags=backup=1;display="System";logical
+/vendor           ext4     vendor                                              flags=backup=1;display="Vendor";logical
 /persist_image    emmc     /dev/block/platform/bootdevice/by-name/persist      flags=backup=1;display="Persist Image";flashimg=1
-/system_image     emmc     /dev/block/platform/bootdevice/by-name/system       flags=backup=1;display="System Image";flashimg=1
-/vendor_image     emmc     /dev/block/platform/bootdevice/by-name/vendor       flags=backup=1;display="Vendor Image";flashimg=1
+/system_image     emmc     system                                              flags=backup=1;display="System Image";flashimg=1
+/vendor_image     emmc     vendor                                              flags=backup=1;display="Vendor Image";flashimg=1
+/product          ext4     product                                             flags=backup=1;display="Product";logical
+/product_image    emmc     product                                             flags=backup=1;display="Product Image";flashimg=1
+/system_ext       ext4     system_ext                                          flags=backup=1;display="System_ext";logical
+/system_ext_image emmc     system_ext                                          flags=backup=1;display="System_ext Image";flashimg=1
+/odm              ext4     odm                                                 flags=backup=1;display="Odm";logical
+/odm_image        emmc     odm                                                 flags=backup=1;display="Odm Image";flashimg=1
+
 
 /external_sd      vfat     /dev/block/mmcblk0p1  /dev/block/mmcblk0            flags=display="MicroSD";storage;wipeingui;removable;fsflags="utf8"
 /usbstorage       vfat     /dev/block/sdd1  /dev/block/sdd                     flags=display="USB Storage";storage;wipeingui;removable;fsflags="utf8"
